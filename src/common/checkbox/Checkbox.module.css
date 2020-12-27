@@ -1,18 +1,26 @@
 .disabledClassName {
     opacity: 0.5;
-}
-.checkboxIsNotChecked{
-    opacity: 1;
+    pointer-events: none;
 }
 .control {
     font-family: Arial;
     display: block;
     position: relative;
-    padding-left: 30px;
     margin-bottom: 5px;
     padding-top: 3px;
     cursor: pointer;
+}
+.controlSizeS {
+    font-size: 12px;
+    padding-left: 25px;
+}
+.controlSizeM {
     font-size: 16px;
+    padding-left: 30px;
+}
+.controlSizeL {
+    font-size: 20px;
+    padding-left: 35px;
 }
 .control input {
     position: absolute;
@@ -21,22 +29,33 @@
 }
 .controlIndicator {
     position: absolute;
-    top: 1px;
+    top: 0;
     left: 0;
+    border: 1px solid #4b8f29;
+}
+.controlIndicatorSizeM {
     height: 20px;
     width: 20px;
-    border: 1px solid #4b8f29;
     border-radius: 20px;
+}
+.controlIndicatorSizeL {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+}
+.controlIndicatorSizeS {
+    height: 16px;
+    width: 16px;
+    border-radius: 16px;
 }
 
 .control input:checked ~ .controlIndicator {
     background: #77b55a;
 }
-
-.control input:disabled ~ .controlIndicator {
-    opacity: 0.5;
-    pointer-events: none;
-}
+/*.control input:disabled ~ .controlIndicator {*/
+/*    opacity: 0.5;*/
+/*    pointer-events: none;*/
+/*}*/
 .controlIndicator:after {
     box-sizing: unset;
     content: '';
@@ -48,14 +67,42 @@
 }
 .controlCheckbox .controlIndicator:after {
     left: 7px;
-    top: 3px;
+    top: 4px;
     width: 3px;
     height: 9px;
     border: solid #ffffff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
-.controlCheckbox input:disabled ~ .controlIndicator:after {
-    opacity: 0.5;
-    pointer-events: none;
+
+.controlCheckboxSizeM .controlIndicatorSizeM:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
+.controlCheckboxSizeS .controlIndicatorSizeS:after {
+    left: 6px;
+    top: 3px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+}
+.controlCheckboxSizeL .controlIndicatorSizeL:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 12px;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+/*.controlCheckbox input:disabled ~ .controlIndicator:after {*/
+/*    opacity: 0.5;*/
+/*    pointer-events: none;*/
+/*}*/

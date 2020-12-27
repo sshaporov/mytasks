@@ -5,6 +5,10 @@ import s from './Button.module.css'
 export type ButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> &
   {
     /**
+     * Button contents
+     */
+    label: string;
+    /**
      * Is this the principal call to action on the page?
      */
     primary?: boolean;
@@ -16,10 +20,6 @@ export type ButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
      * How large should the button be?
      */
     size?: 'S' | 'M' | 'L';
-    /**
-     * Button contents
-     */
-    label: string;
     /**
      * Optional click handler
      */
