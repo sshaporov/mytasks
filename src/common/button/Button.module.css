@@ -1,3 +1,40 @@
-.button{
-    margin-left: 10px;
+.button {
+    font-family: Arial;
+    display:inline-block;
+    cursor:pointer;
+    text-decoration:none;
+    outline: none;
+}
+.button:active {
+    position:relative;
+    top:1px;
+    outline: none;
+}
+button:focus {
+    outline: none;
+}
+.buttonPrimary {
+    background-color:#ffffff;
+    border:1px solid #4b8f29;
+    color:#4b8f29;
+}
+.buttonSecondary {
+    background-color: #77b55a;
+    border:1px solid #4b8f29;
+    color:#ffffff;
+}
+.buttonSizeS {
+    font-size:12px;
+    padding:8px 18px;
+    border-radius:16px;
+}
+.buttonSizeM {
+    font-size:14px;
+    padding:9px 22px;
+    border-radius:19.5px;
+}
+.buttonSizeL {
+    font-size: 16px;
+    padding: 10px 26px;
+    border-radius:21px;
 }

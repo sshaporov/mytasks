@@ -1,19 +1,56 @@
 import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react'
-import s from './Button.module.css'
 import {DEV_VERSION} from '../../config'
+import s from './Button.module.css'
 
-export type ButtonNyaPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-    & { info?: string };
+export type ButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> &
+  {
+    /**
+     * Is this the principal call to action on the page?
+     */
+    primary?: boolean;
+    /**
+     * What background color to use
+     */
+    backgroundColor?: string;
+    /**
+     * How large should the button be?
+     */
+    size?: 'S' | 'M' | 'L';
+    /**
+     * Button contents
+     */
+    label: string;
+    /**
+     * Optional click handler
+     */
+    onClick?: () => void;
+  };
 
-const Button: React.FC<ButtonNyaPropsType> = React.memo((
-    {
-        info,
-        ...props
-    }
+export const Button: React.FC<ButtonPropsType> = React.memo((
+  {
+    primary = false,
+    size = 'M',
+    backgroundColor,
+    label,
+    ...props
+  }
 ) => {
+  DEV_VERSION && console.log("Button");
 
-    DEV_VERSION && info && console.log("render Button" + info);
-    return <button className={s.button} {...props}/>;
+  const modeBtn = primary ? s.buttonPrimary : s.buttonSecondary;
+  // create className for module css:
+  // s.buttonSizeS || s.buttonSizeM || s.buttonSizeL
+  const sizeBtn = size && s[`buttonSize` + size]
+
+  return (
+    <button
+      type="button"
+      // use array.join(' ') method for adding some classes
+      className={[s.button, sizeBtn, modeBtn].join(' ')}
+      style={{backgroundColor}}
+      {...props}
+    >
+      {label}
+    </button>
+  )
 });
-
-export default Button;
