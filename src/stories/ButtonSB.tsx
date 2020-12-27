@@ -27,7 +27,7 @@ export interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({
+export const ButtonSB: React.FC<ButtonProps> = ({
   primary = false,
   size = 'medium',
   backgroundColor,

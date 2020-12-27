@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from './Button';
+import { ButtonSB } from './ButtonSB';
 import './header.css';
 
 export interface HeaderProps {
@@ -34,11 +34,11 @@ export const Header: React.FC<HeaderProps> = ({ user, onLogin, onLogout, onCreat
       </div>
       <div>
         {user ? (
-          <Button size="small" onClick={onLogout} label="Log out" />
+          <ButtonSB size="small" onClick={onLogout} label="Log out" />
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+            <ButtonSB size="small" onClick={onLogin} label="Log in" />
+            <ButtonSB primary size="small" onClick={onCreateAccount} label="Sign up" />
           </>
         )}
       </div>
