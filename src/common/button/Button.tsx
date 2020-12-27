@@ -32,10 +32,10 @@ export const Button: React.FC<ButtonPropsType> = React.memo((
     size = 'M',
     backgroundColor,
     label,
-    ...props
+    ...restProps
   }
 ) => {
-  DEV_VERSION && console.log("Button");
+  DEV_VERSION && console.log('Button ' + label);
 
   const modeBtn = primary ? s.buttonPrimary : s.buttonSecondary;
   // create className for module css:
@@ -48,7 +48,7 @@ export const Button: React.FC<ButtonPropsType> = React.memo((
       // use array.join(' ') method for adding some classes
       className={[s.button, sizeBtn, modeBtn].join(' ')}
       style={{backgroundColor}}
-      {...props}
+      {...restProps}
     >
       {label}
     </button>

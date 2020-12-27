@@ -1,0 +1,61 @@
+.disabledClassName {
+    opacity: 0.5;
+}
+.checkboxIsNotChecked{
+    opacity: 1;
+}
+.control {
+    font-family: Arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.controlIndicator {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #4b8f29;
+    border-radius: 20px;
+}
+
+.control input:checked ~ .controlIndicator {
+    background: #77b55a;
+}
+
+.control input:disabled ~ .controlIndicator {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.controlIndicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .controlIndicator:after {
+    display: block;
+}
+.controlCheckbox .controlIndicator:after {
+    left: 7px;
+    top: 3px;
+    width: 3px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.controlCheckbox input:disabled ~ .controlIndicator:after {
+    opacity: 0.5;
+    pointer-events: none;
+}
