@@ -14,30 +14,34 @@ const Template: Story<ButtonPropsType> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Button',
+  label: 'Primary',
   primary: true,
 }
-
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  label: 'Secondary',
+}
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Disabled',
+  disabled: true,
 }
 
 export const Medium = Template.bind({});
 Medium.args = {
-  label: 'Button',
+  label: 'Medium',
   buttonSize: 'M',
 }
 
 export const Small = Template.bind({});
 Small.args = {
-  label: 'Button',
+  label: 'Small',
   buttonSize: 'S',
 }
 
 export const Large = Template.bind({});
 Large.args = {
-  label: 'Button',
+  label: 'Large',
   buttonSize: 'L',
 }
 

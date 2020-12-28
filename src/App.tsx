@@ -10,6 +10,7 @@ function App() {
       <Button label={'Click'} buttonSize={'S'}/>
       <Button label={'Click'} buttonSize={'M'}/>
       <Button label={'Click'} buttonSize={'L'}/>
+      <Button label={'Click'} buttonSize={'L'} disabled/>
 
       <div><Checkbox label={'checked'} checked/></div>
       <div><Checkbox label={'disabled'} disabled/></div>
@@ -19,7 +20,10 @@ function App() {
       <div><Checkbox label={'S'} checkboxSize={'S'}/></div>
       <div><Checkbox label={'L'} checkboxSize={'L'}/></div>
 
-      <div><InputField placeholder={'Asa SDsdasdasda'}/></div>
+      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."}
+                       // value={"asdadasd"}
+      /></div>
+      <div><InputField placeholder={"Enter your name.."}/></div>
 
     </div>
   );

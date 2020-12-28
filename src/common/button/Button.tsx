@@ -37,6 +37,7 @@ export const Button: React.FC<ButtonPropsType> = React.memo((
 ) => {
   DEV_VERSION && console.log('Button ' + label);
 
+  const disabledClassName = restProps.disabled ? s.buttonDisabled : ''
   const modeBtn = primary ? s.buttonPrimary : s.buttonSecondary;
   // create className for module css:
   // s.buttonSizeS || s.buttonSizeM || s.buttonSizeL
@@ -46,7 +47,7 @@ export const Button: React.FC<ButtonPropsType> = React.memo((
     <button
       type="button"
       // use array.join(' ') method for adding some classes
-      className={[s.button, buttonSizeClassName, modeBtn].join(' ')}
+      className={[s.button, buttonSizeClassName, modeBtn, disabledClassName].join(' ')}
       style={{backgroundColor}}
       {...restProps}
     >

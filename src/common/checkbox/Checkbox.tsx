@@ -17,7 +17,7 @@ export type CheckboxPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputE
      */
     checkboxSize?: 'S' | 'M' | 'L';
     /**
-     * Optional click handler
+     * Optional check handler
      */
     onChangeChecked?: (checked: boolean) => void
   }

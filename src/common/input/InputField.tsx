@@ -3,8 +3,17 @@ import {DEV_VERSION} from '../../config'
 import s from './InputField.module.css'
 
 export type InputFieldPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+  /**
+   * Optional input handler
+   */
   onChangeText?: (value: string) => void;
+  /**
+   * Optional check handler
+   */
   onChangeChecked?: (checked: boolean) => void;
+  /**
+   * Optional parameter for displaying input field name
+   */
   fieldName?: string
 };
 
@@ -32,7 +41,7 @@ export const InputField: React.FC<InputFieldPropsType> = React.memo((
         className={s.input}
         {...restProps}
       />
-      <label>{"sdadsas"}</label>
+      <label>{fieldName}</label>
       <span className={s.focusBorder}></span>
     </div>
   )

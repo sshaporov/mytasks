@@ -13,6 +13,9 @@
 button:focus {
     outline: none;
 }
+.buttonDisabled {
+    opacity: 0.5;
+}
 .buttonPrimary {
     background-color:#ffffff;
     border:1px solid #4b8f29;

@@ -52,10 +52,6 @@
 .control input:checked ~ .controlIndicator {
     background: #77b55a;
 }
-/*.control input:disabled ~ .controlIndicator {*/
-/*    opacity: 0.5;*/
-/*    pointer-events: none;*/
-/*}*/
 .controlIndicator:after {
     box-sizing: unset;
     content: '';
