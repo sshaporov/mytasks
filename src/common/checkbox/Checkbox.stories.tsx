@@ -39,23 +39,20 @@ Checked_and_Disabled.args = {
 export const Medium = Template.bind({});
 Medium.args = {
   label: 'Medium size (default)',
-  //@ts-ignore
-  size: 'M',
+  checkboxSize: 'M',
 
 }
 
 export const Small = Template.bind({});
 Small.args = {
   label: 'Small size',
-  //@ts-ignore
-  size: 'S',
+  checkboxSize: 'S',
 }
 
 export const Large= Template.bind({});
 Large.args = {
   label: 'Large size',
-  //@ts-ignore
-  size: 'L',
+  checkboxSize: 'L',
 }
 
 

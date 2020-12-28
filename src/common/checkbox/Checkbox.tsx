@@ -15,7 +15,7 @@ export type CheckboxPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputE
     /**
      * How large should the button be?
      */
-    size?: 'S' | 'M' | 'L';
+    checkboxSize?: 'S' | 'M' | 'L';
     /**
      * Optional click handler
      */
@@ -25,7 +25,7 @@ export type CheckboxPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputE
 export const Checkbox: React.FC<CheckboxPropsType> = React.memo((
   {
     type, // get this default attribute and ignore it to not change type 'checkbox'
-    size = 'M',
+    checkboxSize = 'M',
     backgroundColor,
     label,
     onChange,
@@ -41,19 +41,19 @@ export const Checkbox: React.FC<CheckboxPropsType> = React.memo((
   }
 
   const disabledClassName = restProps.disabled ? s.disabledClassName : ''
-  const controlSize = size && s[`controlSize` + size]
-  const controlIndicatorSize = size && s[`controlIndicatorSize` + size]
-  const controlCheckboxSize = size && s[`controlCheckboxSize` + size]
+  const controlSizeClassName = checkboxSize && s[`controlSize` + checkboxSize]
+  const controlIndicatorSizeClassName = checkboxSize && s[`controlIndicatorSize` + checkboxSize]
+  const controlCheckboxSizeClassName = checkboxSize && s[`controlCheckboxSize` + checkboxSize]
 
   return (
-    <label className={[s.control, s.controlCheckbox, disabledClassName, controlSize, controlCheckboxSize].join(' ')}>
+    <label className={[s.control, s.controlCheckbox, disabledClassName, controlSizeClassName, controlCheckboxSizeClassName].join(' ')}>
       {label}
       <input
         type={'checkbox'}
         onChange={onChangeCallback}
         {...restProps}
       />
-      <div className={[s.controlIndicator, controlIndicatorSize].join(' ')} style={{backgroundColor}}></div>
+      <div className={[s.controlIndicator, controlIndicatorSizeClassName].join(' ')} style={{backgroundColor}}></div>
     </label>
 
   );

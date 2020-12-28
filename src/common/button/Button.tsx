@@ -19,7 +19,7 @@ export type ButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
     /**
      * How large should the button be?
      */
-    size?: 'S' | 'M' | 'L';
+    buttonSize?: 'S' | 'M' | 'L';
     /**
      * Optional click handler
      */
@@ -29,7 +29,7 @@ export type ButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
 export const Button: React.FC<ButtonPropsType> = React.memo((
   {
     primary = false,
-    size = 'M',
+    buttonSize = 'M',
     backgroundColor,
     label,
     ...restProps
@@ -40,13 +40,13 @@ export const Button: React.FC<ButtonPropsType> = React.memo((
   const modeBtn = primary ? s.buttonPrimary : s.buttonSecondary;
   // create className for module css:
   // s.buttonSizeS || s.buttonSizeM || s.buttonSizeL
-  const sizeBtn = size && s[`buttonSize` + size]
+  const buttonSizeClassName = buttonSize && s[`buttonSize` + buttonSize]
 
   return (
     <button
       type="button"
       // use array.join(' ') method for adding some classes
-      className={[s.button, sizeBtn, modeBtn].join(' ')}
+      className={[s.button, buttonSizeClassName, modeBtn].join(' ')}
       style={{backgroundColor}}
       {...restProps}
     >
