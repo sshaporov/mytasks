@@ -11,11 +11,11 @@ export type CheckboxPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputE
     /**
      * What background color to use
      */
-    backgroundColor?: string;
+    backgroundColor?: string
     /**
      * How large should the button be?
      */
-    checkboxSize?: 'S' | 'M' | 'L';
+    checkboxSize?: 'S' | 'M' | 'L'
     /**
      * Optional check handler
      */
@@ -55,8 +55,5 @@ export const Checkbox: React.FC<CheckboxPropsType> = React.memo((
       />
       <div className={[s.controlIndicator, controlIndicatorSizeClassName].join(' ')} style={{backgroundColor}}></div>
     </label>
-
   );
 })
-
-

@@ -7,23 +7,23 @@ export type ButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
     /**
      * Button contents
      */
-    label: string;
+    label: string
     /**
      * Is this the principal call to action on the page?
      */
-    primary?: boolean;
+    primary?: boolean
     /**
      * What background color to use
      */
-    backgroundColor?: string;
+    backgroundColor?: string
     /**
      * How large should the button be?
      */
-    buttonSize?: 'S' | 'M' | 'L';
+    buttonSize?: 'S' | 'M' | 'L'
     /**
      * Optional click handler
      */
-    onClick?: () => void;
+    onClick?: () => void
   };
 
 export const Button: React.FC<ButtonPropsType> = React.memo((

@@ -20,10 +20,12 @@ function App() {
       <div><Checkbox label={'S'} checkboxSize={'S'}/></div>
       <div><Checkbox label={'L'} checkboxSize={'L'}/></div>
 
-      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."}
-                       // value={"asdadasd"}
-      /></div>
+      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."}/></div>
       <div><InputField placeholder={"Enter your name.."}/></div>
+        <hr/>
+      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'S'}/></div>
+      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'M'}/></div>
+      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'L'}/></div>
 
     </div>
   );

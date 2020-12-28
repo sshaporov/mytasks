@@ -1,28 +1,36 @@
-input{
+.input{
     font-family: Arial;
-    font-size:16px;
-    color: #333;
+    color: black;
     width: 100%;
     box-sizing: border-box;
     letter-spacing: 0.4px;
 }  :focus{
     outline: none;
 }
-.container{
-    float: left;
-    width: 27.33%;
-    margin: 40px 3%;
-    position: relative;
-} /* necessary to give position: relative to parent. */
-
-.input {
-    border: 0;
-    padding: 4px 0;
-    border-bottom: 1px solid #ccc;
-    background-color: transparent;
+.inputSizeS{
+    font-size:12px;
+}
+.inputSizeM{
+    font-size:16px;
+}
+.inputSizeL{
+    font-size:22px;
 }
 
-.input ~ .focusBorder{
+
+.container{
+    float: bottom ;
+    width: 27.33%;
+    margin: 20px 0;
+    position: relative;
+}
+.inputText {
+    border: 0;
+    padding: 4px 0;
+    border-bottom: 1px solid #cccccc;
+    background-color: transparent;
+}
+.inputText ~ .focusBorder{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -31,23 +39,43 @@ input{
     background-color: #4caf50;
     transition: 0.4s;
 }
-.input:focus ~ .focusBorder{
+.inputText:focus ~ .focusBorder{
     width: 100%;
     transition: 0.4s;
 }
-.input ~ label{
+.inputText ~ .labelText{
+    font-family: Arial;
     font-size: 12px;
     position: absolute;
     left: 0;
     width: 100%;
     top: -16px;
-    color: #aaa;
+    color: #aaaaaa;
     transition: 0.3s;
     z-index: -1;
     letter-spacing: 0.4px;
-
 }
-.input:focus ~ label{
-    color: #4caf50;
+.inputText ~ .labelTextSizeS{
+    font-size: 10px;
+    left: 0;
+    top: -16px;
+    letter-spacing: 0.4px;
+}
+.inputText ~ .labelTextSizeM{
+    font-size: 12px;
+    left: 0;
+    top: -16px;
+    letter-spacing: 0.4px;
+}
+.inputText ~ .labelTextSizeL{
+    font-size: 14px;
+    left: 0;
+    top: -16px;
+    letter-spacing: 0.4px;
+}
+
+.inputText:focus ~ .labelText{
+    font-family: Arial;
+    color: #4b8f29;
     letter-spacing: 0.4px;
 }
