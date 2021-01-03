@@ -1,8 +1,8 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useCallback} from 'react'
 import {DEV_VERSION} from '../../config'
-import s from './InputField.module.css'
+import s from './Input.module.css'
 
-export type InputFieldPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> &
+export type InputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> &
   {
     /**
      * Optional input handler
@@ -22,7 +22,7 @@ export type InputFieldPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInpu
     fieldName?: string
   };
 
-export const InputField: React.FC<InputFieldPropsType> = React.memo((
+export const Input: React.FC<InputPropsType> = React.memo((
   {
     onChange,
     onChangeText,

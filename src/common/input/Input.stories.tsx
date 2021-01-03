@@ -1,16 +1,16 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
-import { InputField, InputFieldPropsType } from './InputField'
+import { Input, InputPropsType } from './Input'
 
 export default {
-  title: 'MyTasks/InputField',
-  component: InputField,
+  title: 'MyTasks/Input',
+  component: Input,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as Meta
 
-const Template: Story<InputFieldPropsType> = (args) => <InputField {...args} />;
+const Template: Story<InputPropsType> = (args) => <Input {...args} />;
 
 export const FieldName = Template.bind({});
 FieldName.args = {
@@ -36,17 +36,20 @@ export const Medium = Template.bind({});
 Medium.args = {
   fieldName: 'Size',
   value: 'Medium',
-  autoFocus: true
+  autoFocus: true,
+  inputSize: 'M'
 }
 export const Small = Template.bind({});
 Small.args = {
   fieldName: 'Size',
   value: 'Small',
-  autoFocus: true
+  autoFocus: true,
+  inputSize: 'S'
 }
 export const Large = Template.bind({});
 Large.args = {
   fieldName: 'Size',
   value: 'Large',
-  autoFocus: true
+  autoFocus: true,
+  inputSize: 'L'
 }

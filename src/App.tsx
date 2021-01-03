@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button} from './common/button/Button'
 import {Checkbox} from './common/checkbox/Checkbox'
-import { InputField} from './common/input/InputField'
+import {Input} from './common/input/Input'
 
 function App() {
 
@@ -20,12 +20,12 @@ function App() {
       <div><Checkbox label={'S'} checkboxSize={'S'}/></div>
       <div><Checkbox label={'L'} checkboxSize={'L'}/></div>
 
-      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."}/></div>
-      <div><InputField placeholder={"Enter your name.."}/></div>
+      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."}/></div>
+      <div><Input placeholder={"Enter your name.."}/></div>
         <hr/>
-      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'S'}/></div>
-      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'M'}/></div>
-      <div><InputField fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'L'}/></div>
+      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'S'}/></div>
+      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'M'}/></div>
+      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'L'}/></div>
 
     </div>
   );
