@@ -5,6 +5,7 @@ import {DEV_VERSION} from './config';
 import {Input} from './common/input/Input';
 import {Button} from './common/button/Button';
 import {Menu} from './common/menu/Menu';
+import delIcon from './img/delete.png'
 
 export type TaskType = {
   id: string,
@@ -45,12 +46,16 @@ const App = () => {
   }
 
   const items = [
-    {title: 'ITEM_1', hotKey: 'ctrl + V', icon: 'https://ru.freepik.com/free-icon/hand-silhouette-with-flexed-forefinger_782948.htm'},
-    {title: 'ITEM_2', hotKey: 'ctrl + V'},
-    {title: 'ITEM_3', hotKey: 'ctrl + V'},
-    {title: 'ITEM_4', hotKey: 'ctrl + V'},
-    {title: 'ITEM_5', hotKey: 'ctrl + V'},
+    {id: 'it1', title: 'ITEM_1', hotKey: 'ctrl + V', icon: delIcon},
+    {id: 'it2', title: 'ITEM_2', hotKey: 'ctrl + V'},
+    {id: 'it3', title: 'ITEM_3', hotKey: 'ctrl + V'},
+    {id: 'it4', title: 'ITEM_4', hotKey: 'ctrl + V'},
+    {id: 'it5', title: 'ITEM_5', hotKey: 'ctrl + V'},
   ]
+
+  const onClickMenuItem = (itemId: string) => {
+    console.log('click by', itemId)
+  }
 
   return (
     <div>
@@ -62,7 +67,7 @@ const App = () => {
         changeFilterValue={changeFilterValue}
       />
       <Button label={'...'}/>
-      <Menu items={items}/>
+      <Menu items={items} onClickMenuItem={onClickMenuItem}/>
     </div>
   )
 }
