@@ -8,9 +8,8 @@ export const CardFooter: React.FC<CardFooterPropsType> = React.memo(() => {
   DEV_VERSION && console.log('Card Footer');
 
   return (
-      <div>
-        <div>Task Footer</div>
-      </div>
-    )
-  }
-)
+    <div>
+      <div>Task Footer</div>
+    </div>
+  )
+})

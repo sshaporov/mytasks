@@ -8,11 +8,10 @@ export const CardHeader: React.FC<CardHeaderPropsType> = React.memo((
   {
     cardName
   }
-  ) => {
+) => {
   DEV_VERSION && console.log('Card Header');
 
   return (
-      <div>Header: {cardName}</div>
-    )
-  }
-)
+    <div>Header: {cardName}</div>
+  )
+})

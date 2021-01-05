@@ -7,7 +7,6 @@ import {CardHeader} from './cardHeader/CardHeader'
 import {CardFooter} from './cardFooter/CardFooter'
 import {Filter} from './filter/Filter'
 
-
 export type CardTasksPropsType = {
   tasks: Array<TaskType>
   removeTask: (id: string) => void

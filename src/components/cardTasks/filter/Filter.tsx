@@ -5,7 +5,7 @@ import {FilterValueType} from '../../../App';
 export type FilterPropsType = {
   changeFilterValue: (filterValue: FilterValueType) => void
 }
-export const Filter: React.FC<FilterPropsType> = (
+export const Filter: React.FC<FilterPropsType> = React.memo((
   {
     changeFilterValue
   }
@@ -19,4 +19,4 @@ export const Filter: React.FC<FilterPropsType> = (
       <button onClick={() => changeFilterValue('COMPLETED')}>Completed</button>
     </div>
   )
-}
+})
