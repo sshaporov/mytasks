@@ -1,64 +1,51 @@
 import React, {useState} from 'react'
-import {Button} from './common/button/Button'
-import {Checkbox} from './common/checkbox/Checkbox'
-import {Input} from './common/input/Input'
-import {CardTasks} from "./components/cardTasks/CardTasks";
+import {CardTasks} from './components/cardTasks/CardTasks';
+import {DEV_VERSION} from './config';
 
 export type TaskType = {
-    id: string,
-    title: string,
-    isDone: boolean,
+  id: string,
+  title: string,
+  isDone: boolean,
 }
 
+export type FilterValueType = 'ALL' | 'COMPLETED' | 'ACTIVE'
+
 function App() {
+  DEV_VERSION && console.log('App');
 
-  const [tasks1, setTasks1] = useState<Array<TaskType>>([
-      {id: 'q', title: 'FrontEnd', isDone: true},
-      {id: 'w', title: 'BackEnd', isDone: false},
-      {id: 'e', title: 'Mobile', isDone: true},
-    ]
-  )
-
-  const [tasks2, setTasks2] = useState<Array<TaskType>>([
-    {id: 'a', title: 'Milk', isDone: true},
-    {id: 's', title: 'Bread', isDone: false},
-    {id: 'd', title: 'Cookies', isDone: true},
-    ]
-  )
+  const [tasks, setTasks] = useState<Array<TaskType>>([
+    {id: 'q', title: 'FrontEnd', isDone: true},
+    {id: 'w', title: 'BackEnd', isDone: false},
+    {id: 'e', title: 'Mobile', isDone: true},
+    {id: 'r', title: 'DB', isDone: false},
+    {id: 't', title: 'Rest', isDone: true},
+    {id: 'y', title: 'WebSocket', isDone: false},
+    {id: 'u', title: 'Unit', isDone: true},
+  ])
+  // const [tasksForDisplaying, setTasksForDisplaying] = useState<Array<TaskType>>(tasks)
+  const [filterValue, setFilterValue] = useState<FilterValueType>('ALL')
 
   const removeTask = (id: string) => {
-    console.log('task id = ', id)
-    setTasks1(tasks1.filter(t => t.id != id))
+    setTasks(tasks.filter(t => t.id != id))
+  }
+  const changeFilterValue = (value: FilterValueType) => {
+    setFilterValue(value)
   }
 
-  return (
-    <div>
-      {/*<Button label={'Click'} buttonSize={'S'}/>*/}
-      {/*<Button label={'Click'} buttonSize={'M'}/>*/}
-      {/*<Button label={'Click'} buttonSize={'L'}/>*/}
-      {/*<Button label={'Click'} buttonSize={'L'} disabled/>*/}
+  let tasksForDisplaying = tasks
 
-      {/*<div><Checkbox label={'checked'} checked/></div>*/}
-      {/*<div><Checkbox label={'disabled'} disabled/></div>*/}
-      {/*<div><Checkbox label={'checked disabled'} checked disabled/></div>*/}
-      {/*  <div><Checkbox label={'M'}/></div>*/}
-      {/*<div><Checkbox label={'S'} checkboxSize={'S'}/></div>*/}
-      {/*<div><Checkbox label={'L'} checkboxSize={'L'}/></div>*/}
+  if (filterValue === 'COMPLETED') {
+    tasksForDisplaying = tasks.filter(t => t.isDone === true)
+  }
+  if (filterValue === 'ACTIVE') {
+    tasksForDisplaying = tasks.filter(t => t.isDone === false)
+  }
 
-      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."}/></div>*/}
-      {/*<div><Input placeholder={"Enter your name.."}/></div>*/}
-      {/*  <hr/>*/}
-      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'S'}/></div>*/}
-      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'M'}/></div>*/}
-      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'L'}/></div>*/}
-
-      {/*<hr/>*/}
-
-      <CardTasks tasks={tasks1} removeTask={removeTask}/>
-      {/*<CardTasks tasks={tasks2}/>*/}
-
-    </div>
-  );
+  return <CardTasks
+    tasks={tasksForDisplaying}
+    removeTask={removeTask}
+    changeFilterValue={changeFilterValue}
+  />
 }
 
 export default App;

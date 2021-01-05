@@ -1,5 +1,5 @@
 import React from 'react'
-import {DEV_VERSION} from '../../../config';
+import {DEV_VERSION} from '../../../config'
 
 export type TaskPropsType = {
   id: string
