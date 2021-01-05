@@ -2,11 +2,15 @@ import React from 'react'
 import {DEV_VERSION} from '../../../config';
 
 export type TaskPropsType = {
+  id: string
   title: string
+  removeTask: (id: string) => void
 }
 export const Task: React.FC<TaskPropsType> = React.memo((
   {
-    title
+    title,
+    id,
+    removeTask
   }
 ) => {
     DEV_VERSION && console.log('Task ' + title);
@@ -15,7 +19,7 @@ export const Task: React.FC<TaskPropsType> = React.memo((
       <div>
         <li>{title}</li>
         <button>upd</button>
-        <button>del</button>
+        <button onClick={() => removeTask(id)}>del</button>
       </div>
     )
   }

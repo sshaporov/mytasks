@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Button} from './common/button/Button'
 import {Checkbox} from './common/checkbox/Checkbox'
 import {Input} from './common/input/Input'
@@ -12,35 +12,50 @@ export type TaskType = {
 
 function App() {
 
-    const tasks1: Array<TaskType> = [
+  const [tasks1, setTasks1] = useState<Array<TaskType>>([
       {id: 'q', title: 'FrontEnd', isDone: true},
       {id: 'w', title: 'BackEnd', isDone: false},
       {id: 'e', title: 'Mobile', isDone: true},
     ]
+  )
+
+  const [tasks2, setTasks2] = useState<Array<TaskType>>([
+    {id: 'a', title: 'Milk', isDone: true},
+    {id: 's', title: 'Bread', isDone: false},
+    {id: 'd', title: 'Cookies', isDone: true},
+    ]
+  )
+
+  const removeTask = (id: string) => {
+    console.log('task id = ', id)
+    setTasks1(tasks1.filter(t => t.id != id))
+  }
 
   return (
     <div>
-      <Button label={'Click'} buttonSize={'S'}/>
-      <Button label={'Click'} buttonSize={'M'}/>
-      <Button label={'Click'} buttonSize={'L'}/>
-      <Button label={'Click'} buttonSize={'L'} disabled/>
+      {/*<Button label={'Click'} buttonSize={'S'}/>*/}
+      {/*<Button label={'Click'} buttonSize={'M'}/>*/}
+      {/*<Button label={'Click'} buttonSize={'L'}/>*/}
+      {/*<Button label={'Click'} buttonSize={'L'} disabled/>*/}
 
-      <div><Checkbox label={'checked'} checked/></div>
-      <div><Checkbox label={'disabled'} disabled/></div>
-      <div><Checkbox label={'checked disabled'} checked disabled/></div>
-        <div><Checkbox label={'M'}/></div>
-      <div><Checkbox label={'S'} checkboxSize={'S'}/></div>
-      <div><Checkbox label={'L'} checkboxSize={'L'}/></div>
+      {/*<div><Checkbox label={'checked'} checked/></div>*/}
+      {/*<div><Checkbox label={'disabled'} disabled/></div>*/}
+      {/*<div><Checkbox label={'checked disabled'} checked disabled/></div>*/}
+      {/*  <div><Checkbox label={'M'}/></div>*/}
+      {/*<div><Checkbox label={'S'} checkboxSize={'S'}/></div>*/}
+      {/*<div><Checkbox label={'L'} checkboxSize={'L'}/></div>*/}
 
-      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."}/></div>
-      <div><Input placeholder={"Enter your name.."}/></div>
-        <hr/>
-      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'S'}/></div>
-      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'M'}/></div>
-      <div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'L'}/></div>
+      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."}/></div>*/}
+      {/*<div><Input placeholder={"Enter your name.."}/></div>*/}
+      {/*  <hr/>*/}
+      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'S'}/></div>*/}
+      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'M'}/></div>*/}
+      {/*<div><Input fieldName={'Field Name'} placeholder={"Enter your name.."} inputSize={'L'}/></div>*/}
 
-      <hr/>
-      <CardTasks tasks={tasks1}/>
+      {/*<hr/>*/}
+
+      <CardTasks tasks={tasks1} removeTask={removeTask}/>
+      {/*<CardTasks tasks={tasks2}/>*/}
 
     </div>
   );

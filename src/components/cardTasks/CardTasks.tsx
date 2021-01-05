@@ -9,10 +9,12 @@ import {CardFooter} from './cardFooter/CardFooter';
 
 export type CardTasksPropsType = {
   tasks: Array<TaskType>
+  removeTask: (id: string) => void
 }
 export const CardTasks: React.FC<CardTasksPropsType> = React.memo((
   {
-    tasks
+    tasks,
+    removeTask
   }
 ) => {
     DEV_VERSION && console.log('CardTasks');
@@ -22,7 +24,7 @@ export const CardTasks: React.FC<CardTasksPropsType> = React.memo((
         <CardHeader cardName={'Test Card Name'}/>
         <ProgressBar/>
         <ul>
-          {tasks.map((t) => <Task title={t.title}/>)}
+          {tasks.map((t) => <Task key={t.id} title={t.title} id={t.id} removeTask={removeTask} />)}
         </ul>
         <CardFooter/>
       </div>
