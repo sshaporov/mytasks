@@ -4,7 +4,7 @@ import {CardTasks} from './components/cardTasks/CardTasks';
 import {DEV_VERSION} from './config';
 import {Input} from './common/input/Input';
 import {Button} from './common/button/Button';
-import {Menu} from './common/menu/Menu';
+import {Dropdown} from './common/dropdown/Dropdown';
 import delIcon from './img/delete.png'
 
 export type TaskType = {
@@ -46,11 +46,11 @@ const App = () => {
   }
 
   const items = [
-    {id: 'it1', title: 'ITEM_1', hotKey: 'ctrl + V', icon: delIcon},
-    {id: 'it2', title: 'ITEM_2', hotKey: 'ctrl + V'},
-    {id: 'it3', title: 'ITEM_3', hotKey: 'ctrl + V'},
-    {id: 'it4', title: 'ITEM_4', hotKey: 'ctrl + V'},
-    {id: 'it5', title: 'ITEM_5', hotKey: 'ctrl + V'},
+    {id: 'it1', title: 'ITEM_1', hotKey: 'ctrl+V', icon: delIcon},
+    {id: 'it2', title: 'ITEM_2', hotKey: 'ctrl+V'},
+    {id: 'it3', title: 'ITEM_3', hotKey: 'ctrl+V'},
+    {id: 'it4', title: 'ITEM_4', hotKey: 'ctrl+V'},
+    {id: 'it5', title: 'ITEM_5', hotKey: 'ctrl+V'},
   ]
 
   const onClickMenuItem = (itemId: string) => {
@@ -67,7 +67,7 @@ const App = () => {
         changeFilterValue={changeFilterValue}
       />
       <Button label={'...'}/>
-      <Menu items={items} onClickMenuItem={onClickMenuItem}/>
+      <Dropdown items={items} onClickMenuItem={onClickMenuItem}/>
     </div>
   )
 }
