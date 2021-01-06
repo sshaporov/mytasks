@@ -12,12 +12,14 @@ export type CardTasksPropsType = {
   controlsSize: 'S' | 'M' | 'L'
   tasks: Array<TaskType>
   removeTask: (id: string) => void
+  markTask: (id: string) => void
   changeFilterValue: (filterValue: FilterValueType) => void
 }
 export const CardTasks: React.FC<CardTasksPropsType> = React.memo((
   {
     tasks,
     removeTask,
+    markTask,
     controlsSize,
     changeFilterValue
   }
@@ -29,13 +31,18 @@ export const CardTasks: React.FC<CardTasksPropsType> = React.memo((
         {/*<CardHeader cardName={'Test Card Name'}/>*/}
         {/*<ProgressBar/>*/}
 
-        {tasks.map((t) => <Task
-                            key={t.id} title={t.title}
-                            id={t.id} removeTask={removeTask}
-                            controlsSize={controlsSize}
-                          />)}
+        {tasks.map((t) => <Task key={t.id}
 
-        {/*<Filter changeFilterValue={changeFilterValue}/>*/}
+                                title={t.title}
+                                id={t.id}
+                                checked={t.isDone}
+
+                                removeTask={removeTask}
+                                markTask={markTask}
+                                controlsSize={controlsSize}
+        />)}
+
+        <Filter changeFilterValue={changeFilterValue}/>
         {/*<CardFooter/>*/}
       </div>
     )

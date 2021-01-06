@@ -12,20 +12,29 @@ export type TaskPropsType = {
   id: string
   title: string
   removeTask: (id: string) => void
-  controlsSize: 'S' | 'M' | 'L'
+  markTask: (id: string) => void
+  controlsSize: 'S' | 'M' | 'L',
+  checked: boolean
 }
 export const Task: React.FC<TaskPropsType> = React.memo((
   {
     title,
     controlsSize,
     id,
-    removeTask
+    removeTask,
+    markTask,
+    checked
   }
 ) => {
   DEV_VERSION && console.log('Task ' + title);
 
-  const onClickDropDownItem = (id: string) => {
+  const onClickDropDownItem = (action: string) => {
     console.log('Dropdown ItemID: ', id)
+
+    switch (action) {
+      case 'D': return removeTask(id)
+      case 'M': return markTask(id)
+    }
 
     // проверям какой ID нажали ту операцию и выполняем:
 
@@ -35,15 +44,20 @@ export const Task: React.FC<TaskPropsType> = React.memo((
   }
 
   const items = [
-    {id: 'it1', title: 'Delete', icon: delIcon},
-    {id: 'it2', title: 'Create', icon: addIcon},
-    {id: 'it3', title: 'Update', icon: updIcon},
-    {id: 'it4', title: 'Archive', icon: archIcon},
+    {id: 'D', title: 'Delete', icon: delIcon},
+    {id: 'C', title: 'Create', icon: addIcon},
+    {id: 'U', title: 'Update', icon: updIcon},
+    {id: 'A', title: 'Archive', icon: archIcon},
+    {id: 'M', title: 'Marked', icon: archIcon},
   ]
 
   return (
     <div className={s.taskWrapper}>
-      <Checkbox label={title} checkboxSize={controlsSize}/>
+      <Checkbox
+        label={title}
+        checkboxSize={controlsSize}
+        checked={checked}
+      />
       <Dropdown items={items} onClickDropDownItem={onClickDropDownItem}/>
     </div>
   )

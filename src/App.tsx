@@ -36,6 +36,14 @@ const App = () => {
   const removeTask = (id: string) => {
     setTasks(tasks.filter(t => t.id !== id))
   }
+  const markTask = (id: string) => {
+    const task = tasks.find(t => t.id === id)
+    if (task) {
+      task.isDone = !task.isDone
+      setTasks([...tasks])
+    }
+  }
+
   const changeFilterValue = (value: FilterValueType) => {
     setFilterValue(value)
   }
@@ -49,19 +57,6 @@ const App = () => {
     tasksForDisplaying = tasks.filter(t => !t.isDone)
   }
 
-  const items = [
-    {id: 'it1', title: 'Delete', icon: delIcon},
-    {id: 'it2', title: 'Create', icon: addIcon},
-    {id: 'it3', title: 'Update', icon: updIcon},
-    {id: 'it4', title: 'Archive', icon: archIcon},
-  ]
-  // const items = [
-  //   {id: 'it1', title: 'Delete', hotKey: 'Ctrl+V', icon: delIcon},
-  //   {id: 'it2', title: 'Create', hotKey: 'Ctrl+C', icon: addIcon},
-  //   {id: 'it3', title: 'Update', hotKey: 'Ctrl+D', icon: updIcon},
-  //   {id: 'it4', title: 'Archive', hotKey: 'Ctrl+R', icon: archIcon},
-  // ]
-
   const onClickMenuItem = (itemId: string) => {
     console.log('click by', itemId)
   }
@@ -72,6 +67,7 @@ const App = () => {
         controlsSize={'M'}
         tasks={tasksForDisplaying}
         removeTask={removeTask}
+        markTask={markTask}
         changeFilterValue={changeFilterValue}
       />
     </div>
