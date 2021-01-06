@@ -43,6 +43,10 @@ export const Task: React.FC<TaskPropsType> = React.memo((
     // Archive Task
   }
 
+  const onClickCheckbox = () => {
+    markTask(id)
+  }
+
   const items = [
     {id: 'D', title: 'Delete', icon: delIcon},
     {id: 'C', title: 'Create', icon: addIcon},
@@ -54,6 +58,7 @@ export const Task: React.FC<TaskPropsType> = React.memo((
   return (
     <div className={s.taskWrapper}>
       <Checkbox
+        onChangeChecked={onClickCheckbox}
         label={title}
         checkboxSize={controlsSize}
         checked={checked}
