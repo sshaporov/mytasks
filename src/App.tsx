@@ -5,7 +5,11 @@ import {DEV_VERSION} from './config';
 import {Input} from './common/input/Input';
 import {Button} from './common/button/Button';
 import {Dropdown} from './common/dropdown/Dropdown';
-import delIcon from './img/delete.png'
+import delIcon from './img/delete.svg'
+import addIcon from './img/plus.svg'
+import updIcon from './img/pencil.svg'
+import archIcon from './img/edit.svg'
+
 
 export type TaskType = {
   id: string,
@@ -46,12 +50,17 @@ const App = () => {
   }
 
   const items = [
-    {id: 'it1', title: 'ITEM_1', hotKey: 'ctrl+V', icon: delIcon},
-    {id: 'it2', title: 'ITEM_2', hotKey: 'ctrl+V'},
-    {id: 'it3', title: 'ITEM_3', hotKey: 'ctrl+V'},
-    {id: 'it4', title: 'ITEM_4', hotKey: 'ctrl+V'},
-    {id: 'it5', title: 'ITEM_5', hotKey: 'ctrl+V'},
+    {id: 'it1', title: 'Delete', icon: delIcon},
+    {id: 'it2', title: 'Create', icon: addIcon},
+    {id: 'it3', title: 'Update', icon: updIcon},
+    {id: 'it4', title: 'Archive', icon: archIcon},
   ]
+  // const items = [
+  //   {id: 'it1', title: 'Delete', hotKey: 'Ctrl+V', icon: delIcon},
+  //   {id: 'it2', title: 'Create', hotKey: 'Ctrl+C', icon: addIcon},
+  //   {id: 'it3', title: 'Update', hotKey: 'Ctrl+D', icon: updIcon},
+  //   {id: 'it4', title: 'Archive', hotKey: 'Ctrl+R', icon: archIcon},
+  // ]
 
   const onClickMenuItem = (itemId: string) => {
     console.log('click by', itemId)
@@ -59,15 +68,12 @@ const App = () => {
 
   return (
     <div>
-      <Input/>
-      <Button label={'Add task'}/>
       <CardTasks
+        controlsSize={'M'}
         tasks={tasksForDisplaying}
         removeTask={removeTask}
         changeFilterValue={changeFilterValue}
       />
-      <Button label={'...'}/>
-      <Dropdown items={items} onClickMenuItem={onClickMenuItem}/>
     </div>
   )
 }

@@ -1,44 +1,69 @@
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
-
 .dropBtn {
-    color: #cccccc;
-    font-weight: 700;
-    padding: 1px 6px 6px 6px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: white;
+  color: #cccccc;
+  font-weight: 700;
+  padding: 1px 6px 6px 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: white;
+  outline: none;
 }
-
 .dropdown:hover .dropBtn {
-    background-color: #cccccc;
-    color: #fff;
+  background-color: #cccccc;
+  color: #fff;
+  outline: none;
 }
-
 .dropContent {
-    position: absolute;
-    background-color: #f9f9f9;
-    /*min-width: 160px;*/
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 7px;
-    z-index: 1;
+  padding: 5px 0;
+  position: absolute;
+  background-color: #f9f9f9;
+  /*min-width: 160px;*/
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  z-index: 1;
 }
-
+.dropItemWrapper {
+  width: 100%;
+  display: inline-flex;
+  /*flex-direction: column;*/
+  /*justify-content: flex-start;*/
+  /*align-items: flex-start;*/
+}
+.dropItemWrapper:hover {
+  background-color: #cccccc;
+  color: black;
+  cursor: pointer;
+}
+.dropItem:hover .itemIcon {
+  opacity: 1;
+}
 .dropItem {
   display: inline-flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-content: stretch;
-  align-items: flex-start;
+  align-items: center;
+  margin: 4px 15px;
 }
-
-.dropItem img {
-  margin: 0 10px;
-    height: 20px;
-    width: 20px;
+.dropItem .itemIcon {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+  opacity: 0.4;
+}
+.itemTitle {
+  margin-right: 10px;
+  flex: 0 1 auto;
+  align-self: auto;
+  min-width: 50px;
+}
+.itemHotKey {
+  opacity: 0.3;
+  font-size: 12px;
 }

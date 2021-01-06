@@ -1,0 +1,9 @@
+.cardTasksWrapper {
+  width: 200px;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #cdcdcf;
+  padding: 20px;
+  margin: 20px;
+}
