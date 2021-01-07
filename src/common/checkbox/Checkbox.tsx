@@ -7,7 +7,7 @@ export type CheckboxPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputE
     /**
      * Checkbox contents
      */
-    label: string
+    label?: string
     /**
      * What background color to use
      */

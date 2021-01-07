@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {DEV_VERSION} from '../../../config'
 import {Checkbox} from '../../../common/checkbox/Checkbox'
 import {Dropdown} from '../../../common/dropdown/Dropdown'
@@ -7,12 +7,15 @@ import addIcon from '../../../img/plus.svg'
 import updIcon from '../../../img/pencil.svg'
 import archIcon from '../../../img/edit.svg'
 import s from './Task.module.css'
+import {Input} from '../../../common/input/Input';
+import { EditSpan } from '../../../common/editSpan/EditSpan'
 
 export type TaskPropsType = {
   id: string
   title: string
   removeTask: (id: string) => void
   markTask: (id: string) => void
+  changeTaskTitle: (id: string, text: string) => void
   controlsSize: 'S' | 'M' | 'L',
   checked: boolean
 }
@@ -23,34 +26,36 @@ export const Task: React.FC<TaskPropsType> = React.memo((
     id,
     removeTask,
     markTask,
+    changeTaskTitle,
     checked
   }
 ) => {
   DEV_VERSION && console.log('Task ' + title);
 
-  const onClickDropDownItem = (action: string) => {
-    console.log('Dropdown ItemID: ', id)
-
-    switch (action) {
-      case 'D': return removeTask(id)
-      case 'M': return markTask(id)
-    }
-
-    // проверям какой ID нажали ту операцию и выполняем:
-
-    // upd Task
-    // remove Task
-    // Archive Task
-  }
-
   const onClickCheckbox = () => {
     markTask(id)
+  }
+
+  const onChangeTitle = (text: string) => {
+    changeTaskTitle(id, text)
+  }
+
+  const onClickDropDownItem = (action: string) => {
+    console.log('action', action)
+    switch (action) {
+      case 'D':
+        return removeTask(id)
+      case 'M':
+        return markTask(id)
+      case 'E':
+        return onChangeTitle
+    }
   }
 
   const items = [
     {id: 'D', title: 'Delete', icon: delIcon},
     {id: 'C', title: 'Create', icon: addIcon},
-    {id: 'U', title: 'Update', icon: updIcon},
+    {id: 'E', title: 'Edit', icon: updIcon},
     {id: 'A', title: 'Archive', icon: archIcon},
     {id: 'M', title: 'Marked', icon: archIcon},
   ]
@@ -58,11 +63,11 @@ export const Task: React.FC<TaskPropsType> = React.memo((
   return (
     <div className={s.taskWrapper}>
       <Checkbox
-        onChangeChecked={onClickCheckbox}
-        label={title}
-        checkboxSize={controlsSize}
-        checked={checked}
-      />
+            onChangeChecked={onClickCheckbox}
+            checkboxSize={controlsSize}
+            checked={checked}/>
+      <EditSpan value={title} changeValue={onChangeTitle}/>
+
       <Dropdown items={items} onClickDropDownItem={onClickDropDownItem}/>
     </div>
   )

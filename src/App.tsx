@@ -36,10 +36,19 @@ const App = () => {
   const removeTask = (id: string) => {
     setTasks(tasks.filter(t => t.id !== id))
   }
+
   const markTask = (id: string) => {
     const task = tasks.find(t => t.id === id)
     if (task) {
       task.isDone = !task.isDone
+      setTasks([...tasks])
+    }
+  }
+
+  const changeTaskTitle = (id: string, newText: string) => {
+    const task = tasks.find(t => t.id === id)
+    if (task) {
+      task.title = newText
       setTasks([...tasks])
     }
   }
@@ -67,6 +76,7 @@ const App = () => {
         controlsSize={'M'}
         tasks={tasksForDisplaying}
         removeTask={removeTask}
+        changeTaskTitle={changeTaskTitle}
         markTask={markTask}
         changeFilterValue={changeFilterValue}
       />

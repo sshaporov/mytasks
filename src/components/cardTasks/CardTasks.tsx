@@ -12,6 +12,7 @@ export type CardTasksPropsType = {
   controlsSize: 'S' | 'M' | 'L'
   tasks: Array<TaskType>
   removeTask: (id: string) => void
+  changeTaskTitle: (id: string, text: string) => void
   markTask: (id: string) => void
   changeFilterValue: (filterValue: FilterValueType) => void
 }
@@ -21,6 +22,7 @@ export const CardTasks: React.FC<CardTasksPropsType> = React.memo((
     removeTask,
     markTask,
     controlsSize,
+    changeTaskTitle,
     changeFilterValue
   }
 ) => {
@@ -39,6 +41,7 @@ export const CardTasks: React.FC<CardTasksPropsType> = React.memo((
 
                                 removeTask={removeTask}
                                 markTask={markTask}
+                                changeTaskTitle={changeTaskTitle}
                                 controlsSize={controlsSize}
         />)}
 
