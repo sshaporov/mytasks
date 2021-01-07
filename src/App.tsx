@@ -5,10 +5,10 @@ import {DEV_VERSION} from './config';
 import {Input} from './common/input/Input';
 import {Button} from './common/button/Button';
 import {Dropdown} from './common/dropdown/Dropdown';
-import delIcon from './img/delete.svg'
-import addIcon from './img/plus.svg'
-import updIcon from './img/pencil.svg'
-import archIcon from './img/edit.svg'
+import delIcon from './common/dropdown/img/delete.svg'
+import addIcon from './common/dropdown/img/add.svg'
+import updIcon from './common/dropdown/img/edit.svg'
+import archIcon from './common/dropdown/img/edit.svg'
 
 
 export type TaskType = {

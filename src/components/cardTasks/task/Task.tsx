@@ -2,12 +2,11 @@ import React, {useState} from 'react'
 import {DEV_VERSION} from '../../../config'
 import {Checkbox} from '../../../common/checkbox/Checkbox'
 import {Dropdown} from '../../../common/dropdown/Dropdown'
-import delIcon from '../../../img/delete.svg'
-import addIcon from '../../../img/plus.svg'
-import updIcon from '../../../img/pencil.svg'
-import archIcon from '../../../img/edit.svg'
+import delIcon from '../../../common/dropdown/img/delete.svg'
+import addIcon from '../../../common/dropdown/img/add.svg'
+import updIcon from '../../../common/dropdown/img/edit.svg'
+import archIcon from '../../../common/dropdown/img/edit.svg'
 import s from './Task.module.css'
-import {Input} from '../../../common/input/Input';
 import { EditSpan } from '../../../common/editSpan/EditSpan'
 
 export type TaskPropsType = {
@@ -40,6 +39,8 @@ export const Task: React.FC<TaskPropsType> = React.memo((
     changeTaskTitle(id, text)
   }
 
+  const [isEditByDropdown, setIsEditByDropdown] = useState<boolean | undefined>(undefined)
+
   const onClickDropDownItem = (action: string) => {
     console.log('action', action)
     switch (action) {
@@ -48,7 +49,7 @@ export const Task: React.FC<TaskPropsType> = React.memo((
       case 'M':
         return markTask(id)
       case 'E':
-        return onChangeTitle
+        return setIsEditByDropdown(true)
     }
   }
 
@@ -66,8 +67,7 @@ export const Task: React.FC<TaskPropsType> = React.memo((
             onChangeChecked={onClickCheckbox}
             checkboxSize={controlsSize}
             checked={checked}/>
-      <EditSpan value={title} changeValue={onChangeTitle}/>
-
+      <EditSpan value={title} changeValue={onChangeTitle} mode={isEditByDropdown}/>
       <Dropdown items={items} onClickDropDownItem={onClickDropDownItem}/>
     </div>
   )

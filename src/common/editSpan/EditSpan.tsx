@@ -1,20 +1,34 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
+import {Input} from '../input/Input';
 
-type EditableSpanPropsType = {
+type EditSpanPropsType = {
   value: string
   changeValue: (value: string) => void
+  mode?: boolean
 }
 
-export const EditSpan = React.memo((props: EditableSpanPropsType) => {
+export const EditSpan: React.FC<EditSpanPropsType> = React.memo((
+  {
+    value,
+    changeValue,
+    mode = false
+  }
+) => {
   let [editMode, setEditMode] = useState<boolean>(false)
-  let [title, setTitle] = useState<string>(props.value)
+  let [title, setTitle] = useState<string>(value)
+
+  useEffect(() => {
+    setEditMode(mode)
+  }, [mode])
+
+  console.log('mode edit', mode)
 
   const activatedEditMode = () => {
     setEditMode(true)
   }
   const deActivatedEditMode = () => {
     setEditMode(false)
-    props.changeValue(title)
+    changeValue(title)
   }
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value)
@@ -25,5 +39,5 @@ export const EditSpan = React.memo((props: EditableSpanPropsType) => {
              onChange={onChangeHandler}
              onBlur={deActivatedEditMode}
              autoFocus={true}/>
-    : <span onDoubleClick={activatedEditMode}>{props.value}</span>
+    : <span onDoubleClick={activatedEditMode}>{value}</span>
 })

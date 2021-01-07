@@ -43,6 +43,7 @@
   opacity: 1;
 }
 .dropItem {
+  font-family: Arial;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: nowrap;

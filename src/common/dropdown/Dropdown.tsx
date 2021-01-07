@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import s from './Dropdown.module.css'
 
 type ItemType = {
@@ -10,24 +10,32 @@ type ItemType = {
 export type DropDownPropsType = {
   items: Array<ItemType>
   onClickDropDownItem: (id: string) => void
+  isExpand?: boolean
 }
 export const Dropdown: React.FC<DropDownPropsType> = React.memo((
   {
     items,
-    onClickDropDownItem
+    onClickDropDownItem,
+    isExpand
   }
 ) => {
-  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [isShow, setIsShow] = useState<boolean>(false)
+
+  useEffect(() => {
+    if(isExpand != undefined){
+      setIsShow(isExpand)
+    }
+  }, [isExpand])
 
   return (
     <div className={s.dropdown}>
       <button
         className={s.dropBtn}
-        onClick={() => setIsCollapsed(!isCollapsed)}
+        onClick={() => setIsShow(!isShow)}
       >...
       </button>
 
-      {isCollapsed
+      {isShow
       && <div className={s.dropContent}>
         {items.map((item, index) => <div onClick={() => onClickDropDownItem(item.id)} key={index} className={s.dropItemWrapper}>
 
