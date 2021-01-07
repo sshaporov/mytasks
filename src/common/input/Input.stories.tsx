@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { Input, InputPropsType } from './Input'
 
 export default {
-  title: 'MyTasks/Input',
+  title: 'MyComponents/Input',
   component: Input,
   argTypes: {
     backgroundColor: { control: 'color' },

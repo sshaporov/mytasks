@@ -6,7 +6,7 @@ import addIcon from './img/add.svg';
 import updIcon from './img/edit.svg';
 
 export default {
-  title: 'MyTasks/DropDown',
+  title: 'MyComponents/DropDown',
   component: Dropdown,
   argTypes: {
     backgroundColor: { control: 'color' },

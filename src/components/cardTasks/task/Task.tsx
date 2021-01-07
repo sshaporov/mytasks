@@ -63,10 +63,10 @@ export const Task: React.FC<TaskPropsType> = React.memo((
 
   return (
     <div className={s.taskWrapper}>
-      <Checkbox
-            onChangeChecked={onClickCheckbox}
-            checkboxSize={controlsSize}
-            checked={checked}/>
+      <input
+        type={'checkbox'}
+        onClick={onClickCheckbox}
+        checked={checked}/>
       <EditSpan value={title} changeValue={onChangeTitle} mode={isEditByDropdown}/>
       <Dropdown items={items} onClickDropDownItem={onClickDropDownItem}/>
     </div>

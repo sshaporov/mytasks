@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {Input} from '../input/Input';
 
-type EditSpanPropsType = {
+export type EditSpanPropsType = {
   value: string
   changeValue: (value: string) => void
   mode?: boolean
@@ -28,7 +28,6 @@ export const EditSpan: React.FC<EditSpanPropsType> = React.memo((
   }
   const deActivatedEditMode = () => {
     setEditMode(false)
-    changeValue(title)
   }
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value)
