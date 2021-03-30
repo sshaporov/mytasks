@@ -16,7 +16,7 @@ export const Filter: React.FC<FilterPropsType> = React.memo((
     <div>
       <button onClick={() => changeFilterValue('ALL')}>All</button>
       <button onClick={() => changeFilterValue('ACTIVE')}>Active</button>
-      <button onClick={() => changeFilterValue('COMPLETED')}>Completed</button>
+      <button onClick={() => changeFilterValue('DONE')}>Completed</button>
     </div>
   )
 })

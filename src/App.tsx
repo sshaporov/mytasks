@@ -48,7 +48,7 @@ const App = () => {
   const changeFilterValue = (value: FilterValueType) => {
     setFilterValue(value)
   }
-
+  
   let tasksForDisplaying = tasks
 
   if (filterValue === 'COMPLETED') {
