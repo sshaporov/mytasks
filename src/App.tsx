@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {v1} from 'uuid'
-import {CardTasks} from './components/cardTasks/CardTasks';
-import {DEV_VERSION} from './config';
+import {CardTasks} from './components/cardTasks/CardTasks'
+import {DEV_VERSION} from './config'
 
 export type TaskType = {
   id: string,
@@ -12,7 +12,7 @@ export type TaskType = {
 export type FilterValueType = 'ALL' | 'COMPLETED' | 'ACTIVE'
 
 const App = () => {
-  DEV_VERSION && console.log('App');
+  DEV_VERSION && console.log('App')
 
   const [tasks, setTasks] = useState<Array<TaskType>>([
     {id: v1(), title: 'FrontEnd', isDone: true},
